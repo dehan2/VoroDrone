@@ -1,0 +1,3 @@
+#pragma once
+
+enum BUG_GENERATION_MODE {ON_FENCE, RANDOM};

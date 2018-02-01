@@ -4,16 +4,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VoroDrone", "VoroDrone\VoroDrone.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111} = {E5551C7A-B101-4BA3-B128-0AEC8D721111}
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A} = {1B55A49E-5F6C-4BE0-9703-D8282C02006A}
-	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BULL", "..\BULL\BULL.vcxproj", "{E5551C7A-B101-4BA3-B128-0AEC8D721111}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DynamicVD3DLib", "..\DynamicVD3DLib\DynamicVD3DLib.vcxproj", "{1B55A49E-5F6C-4BE0-9703-D8282C02006A}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VoroDroneLib", "..\VoroDroneLib\VoroDroneLib.vcxproj", "{E7904C81-FDC8-4DA2-8210-202F3C18F9DB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VoroDroneLib", "VoroDroneLib\VoroDroneLib.vcxproj", "{E7904C81-FDC8-4DA2-8210-202F3C18F9DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,22 +21,6 @@ Global
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|Win32
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x86.ActiveCfg = Release|Win32
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x86.Build.0 = Release|Win32
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111}.Debug|x64.ActiveCfg = Debug|x64
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111}.Debug|x64.Build.0 = Debug|x64
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111}.Debug|x86.ActiveCfg = Debug|Win32
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111}.Debug|x86.Build.0 = Debug|Win32
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111}.Release|x64.ActiveCfg = Release|x64
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111}.Release|x64.Build.0 = Release|x64
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111}.Release|x86.ActiveCfg = Release|Win32
-		{E5551C7A-B101-4BA3-B128-0AEC8D721111}.Release|x86.Build.0 = Release|Win32
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A}.Debug|x64.ActiveCfg = Debug|x64
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A}.Debug|x64.Build.0 = Debug|x64
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A}.Debug|x86.ActiveCfg = Debug|Win32
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A}.Debug|x86.Build.0 = Debug|Win32
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A}.Release|x64.ActiveCfg = Release|x64
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A}.Release|x64.Build.0 = Release|x64
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A}.Release|x86.ActiveCfg = Release|Win32
-		{1B55A49E-5F6C-4BE0-9703-D8282C02006A}.Release|x86.Build.0 = Release|Win32
 		{E7904C81-FDC8-4DA2-8210-202F3C18F9DB}.Debug|x64.ActiveCfg = Debug|x64
 		{E7904C81-FDC8-4DA2-8210-202F3C18F9DB}.Debug|x64.Build.0 = Debug|x64
 		{E7904C81-FDC8-4DA2-8210-202F3C18F9DB}.Debug|x86.ActiveCfg = Debug|Win32
@@ -58,7 +34,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {662D647F-076C-46A5-95D6-871D47BA9CC6}
 		Qt5Version = msvc2015_static
+		SolutionGuid = {662D647F-076C-46A5-95D6-871D47BA9CC6}
 	EndGlobalSection
 EndGlobal

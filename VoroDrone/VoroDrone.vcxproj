@@ -179,17 +179,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BULL\BULL.vcxproj">
-      <Project>{e5551c7a-b101-4ba3-b128-0aec8d721111}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DynamicVD3DLib\DynamicVD3DLib.vcxproj">
-      <Project>{1b55a49e-5f6c-4be0-9703-d8282c02006a}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\VoroDroneLib\VoroDroneLib.vcxproj">
-      <Project>{e7904c81-fdc8-4da2-8210-202f3c18f9db}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="droneConnector.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
