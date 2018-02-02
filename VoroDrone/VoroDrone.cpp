@@ -5,7 +5,7 @@ VoroDrone::VoroDrone(QWidget *parent)
 {
 	ui.setupUi(this);
 
-	m_playSpeed = 1.0;
+	m_playSpeed = 1.0e-2;
 	
 	m_simulationTimer = new QTimer(this);
 	connect(m_simulationTimer, SIGNAL(timeout()), this, SLOT(increase_simulation_time()));

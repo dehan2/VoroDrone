@@ -40,7 +40,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_GUI_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BULLDIR)\src\Geo_tier\ShortestPath\include;$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include;$(BULLDIR)\src\Core_tier\include;$(BULLDIR)\src\Geo_tier\LabSrc\include;$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include;$(DVD3DDIR)\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(VORODRONEDIR)\include;C:\Python27\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BULLDIR)\src\Geo_tier\ShortestPath\include;$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include;$(BULLDIR)\src\Core_tier\include;$(BULLDIR)\src\Geo_tier\LabSrc\include;$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include;$(DVD3DDIR)\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(VORODRONEDIR)\include;C:\Python27\include;$(VDRCQTDIR)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -57,7 +57,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BULLDIR)\src\Geo_tier\ShortestPath\include;$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include;$(BULLDIR)\src\Core_tier\include;$(BULLDIR)\src\Geo_tier\LabSrc\include;$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include;$(DVD3DDIR)\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(VORODRONEDIR)\include;C:\Python27\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BULLDIR)\src\Geo_tier\ShortestPath\include;$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include;$(BULLDIR)\src\Core_tier\include;$(BULLDIR)\src\Geo_tier\LabSrc\include;$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include;$(DVD3DDIR)\include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(VORODRONEDIR)\include;C:\Python27\include;$(VDRCQTDIR)</AdditionalIncludeDirectories>
       <DebugInformationFormat />
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -79,9 +79,6 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_DroneDisplayerWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_VDRCOpenGLWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_VoroDrone.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -97,14 +94,10 @@
     <ClCompile Include="GeneratedFiles\Release\moc_DroneDisplayerWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_VDRCOpenGLWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_VoroDrone.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="VDRCOpenGLWidget.cpp" />
     <ClCompile Include="VoroDrone.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -112,11 +105,11 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing VoroDrone.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(NOINHERIT)\."</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(VDRCQTDIR)\." "-I$(NOINHERIT)\."</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing VoroDrone.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(NOINHERIT)\."</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(VDRCQTDIR)\." "-I$(NOINHERIT)\."</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -133,38 +126,27 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constForDroneDisplayer.h" />
-    <ClInclude Include="constForVDRCOpenGLWidget.h" />
     <CustomBuild Include="DroneDisplayerWidget.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing DroneDisplayerWidget.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(NOINHERIT)\."</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(VDRCQTDIR)\." "-I$(NOINHERIT)\."</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing DroneDisplayerWidget.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(NOINHERIT)\."</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(VDRCQTDIR)\." "-I$(NOINHERIT)\."</Command>
     </CustomBuild>
     <CustomBuild Include="DroneCommunicatorThread.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing DroneCommunicatorThread.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(NOINHERIT)\."</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(VDRCQTDIR)\." "-I$(NOINHERIT)\."</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing DroneCommunicatorThread.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(NOINHERIT)\."</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(VDRCQTDIR)\." "-I$(NOINHERIT)\."</Command>
     </CustomBuild>
     <ClInclude Include="GeneratedFiles\ui_VoroDrone.h" />
-    <CustomBuild Include="VDRCOpenGLWidget.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing VDRCOpenGLWidget.h...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(NOINHERIT)\."</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing VDRCOpenGLWidget.h...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -D_UNICODE  "-I$(BULLDIR)\src\Geo_tier\ShortestPath\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram2D\include" "-I$(BULLDIR)\src\Core_tier\include" "-I$(BULLDIR)\src\Geo_tier\LabSrc\include" "-I$(BULLDIR)\src\Geo_tier\VoronoiDiagram3D\include" "-I$(DVD3DDIR)\include" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(VORODRONEDIR)\include" "-IC:\Python27\include" "-I$(NOINHERIT)\."</Command>
-    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="VoroDrone.qrc">
@@ -180,6 +162,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="droneConnector.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DynamicVoronoiDiagram\BULL\BULL.vcxproj">
+      <Project>{e5551c7a-b101-4ba3-b128-0aec8d721111}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DynamicVoronoiDiagram\DynamicVD3DLib\DynamicVD3DLib.vcxproj">
+      <Project>{1b55a49e-5f6c-4be0-9703-d8282c02006a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VDRCQtLib\VDRCQtLib\VDRCQtLib.vcxproj">
+      <Project>{6b446e23-249c-4819-a228-8e55cc99ff7c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\VoroDroneLib\VoroDroneLib.vcxproj">
+      <Project>{e7904c81-fdc8-4da2-8210-202f3c18f9db}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -93,7 +93,7 @@ void DroneDisplayerWidget::draw_objects(const Color3f& hunterColor, const Color3
 			}
 		}
 
-		draw_fence(m_pSimulator->get_fence_length(), m_pSimulator->get_fence_width(), m_pSimulator->get_fence_height());
+		//draw_fence(m_pSimulator->get_fence_length(), m_pSimulator->get_fence_width(), m_pSimulator->get_fence_height());
 		//draw_drone_roll();
 	}
 }

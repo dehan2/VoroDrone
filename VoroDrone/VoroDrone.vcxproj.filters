@@ -55,15 +55,6 @@
     <ClCompile Include="GeneratedFiles\qrc_VoroDrone.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_VDRCOpenGLWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_VDRCOpenGLWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="VDRCOpenGLWidget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_DroneDisplayerWidget.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -93,9 +84,6 @@
     <CustomBuild Include="VoroDrone.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="VDRCOpenGLWidget.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="DroneDisplayerWidget.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
@@ -106,9 +94,6 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_VoroDrone.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="constForVDRCOpenGLWidget.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="constForDroneDisplayer.h">
       <Filter>Header Files</Filter>

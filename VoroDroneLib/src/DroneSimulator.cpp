@@ -10,8 +10,8 @@ DroneSimulator::DroneSimulator()
 	m_n = 0;
 	m_r = 0.0;
 	m_theta = 0.0;
-	m_minV = 0.0;
-	m_maxV = 0.0;
+	m_minV = 1.0;
+	m_maxV = 1.0;
 
 	m_fenceLength = 50.0;
 	m_fenceWidth = 50.0;
@@ -82,13 +82,11 @@ void DroneSimulator::generate_drones_in_fence(const float& fenceLength, const fl
 				if (indexForFilledCell.count(cellIndex) > 0)
 				{
 					uniform_real_distribution<float> fRand{ -margin, margin };
-					//Sphere sphere(rg_Point3D((2 * i + 1)* cellSize, (2 * j + 1)* cellSize, (2 * k + 1)* cellSize) + startCorner, cellSize);
 					Sphere sphere(rg_Point3D(fRand(engine)*margin + (2 * i + 1)* cellSize, fRand(engine)*margin + (2 * j+ 1)* cellSize, 
 						fRand(engine)*margin + (2 * k + 1)* cellSize)+startCorner, obstacleRadius);
-					/*rg_Point3D velocity = rg_Point3D(fRand(engine), fRand(engine), fRand(engine));
+					rg_Point3D velocity = rg_Point3D(fRand(engine), fRand(engine), fRand(engine));
 					float ratio = fRand(engine);
-					velocity = velocity.getUnitVector()*((1 - ratio)*m_maxV + ratio * m_minV);*/
-					rg_Point3D velocity;
+					velocity = velocity.getUnitVector()*((1 - ratio)*m_maxV + ratio * m_minV);
 					m_obstacles.push_back(DynamicBall(m_obstacles.size() + 2, LINEAR_BALL, sphere, velocity));
 				}
 			}
@@ -124,11 +122,11 @@ void DroneSimulator::prepare_simulation(const double& timeWindow)
 
 	m_dynamicVD.construct_initial_VD(m_dynamicBalls);
 	m_dynamicVD.set_time_window(timeWindow);
-	//m_dynamicVD.construct_initial_event_queue();
+	m_dynamicVD.construct_initial_event_queue();
 	m_dynamicVD.fenceLength = m_fenceLength;
 	m_dynamicVD.fenceWidth = m_fenceWidth;
 	m_dynamicVD.fenceHeight = m_fenceHeight;
-	//check_collision_between_fence_and_obstacles();
+	check_collision_between_fence_and_obstacles();
 }
 
 
