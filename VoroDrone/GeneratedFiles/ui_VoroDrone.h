@@ -699,6 +699,7 @@ public:
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
         checkBox_show_DVD = new QCheckBox(groupBox_7);
         checkBox_show_DVD->setObjectName(QStringLiteral("checkBox_show_DVD"));
+        checkBox_show_DVD->setChecked(true);
 
         horizontalLayout_10->addWidget(checkBox_show_DVD);
 
@@ -749,7 +750,7 @@ public:
         QObject::connect(radioButton_obstacle_ball, SIGNAL(clicked()), VoroDroneClass, SLOT(show_option_changed()));
         QObject::connect(radioButton_obstacle_hide, SIGNAL(clicked()), VoroDroneClass, SLOT(show_option_changed()));
         QObject::connect(lineEdit_time, SIGNAL(returnPressed()), VoroDroneClass, SLOT(current_time_changed_by_edit()));
-        QObject::connect(horizontalSlider_time, SIGNAL(sliderMoved(int)), VoroDroneClass, SLOT(current_time_changed_by_slider()));
+        QObject::connect(horizontalSlider_time, SIGNAL(sliderReleased()), VoroDroneClass, SLOT(current_time_changed_by_slider()));
         QObject::connect(doubleSpinBox_play_speed, SIGNAL(valueChanged(double)), VoroDroneClass, SLOT(play_speed_changed(double)));
         QObject::connect(pushButton_play, SIGNAL(clicked()), VoroDroneClass, SLOT(play_simulation()));
         QObject::connect(pushButton_generate_drones, SIGNAL(clicked()), VoroDroneClass, SLOT(generate_drones_and_prepare_simulation()));

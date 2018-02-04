@@ -831,6 +831,9 @@
               <property name="text">
                <string>Show</string>
               </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
            </layout>
@@ -1072,7 +1075,7 @@
   </connection>
   <connection>
    <sender>horizontalSlider_time</sender>
-   <signal>sliderMoved(int)</signal>
+   <signal>sliderReleased()</signal>
    <receiver>VoroDroneClass</receiver>
    <slot>current_time_changed_by_slider()</slot>
    <hints>
