@@ -6,6 +6,11 @@
 #include "DroneCommunicatorThread.h"
 #include <QMutex>
 
+#include "BallSetVoronoiDiagramCore.h"
+
+using namespace BULL;
+using namespace CoreTier;
+
 class VoroDrone : public QMainWindow
 {
 	Q_OBJECT
@@ -16,6 +21,8 @@ class VoroDrone : public QMainWindow
 	QTimer* m_simulationTimer;
 	QTimer* m_pathFindingTimer;
 	QMutex m_mutex;
+
+	BallSetVoronoiDiagramCore m_SVD;
 
 	DroneCommunicatorThread* m_droneCommunicator;
 	int m_pathComputationCounter;
@@ -35,6 +42,7 @@ private:
 	void update_current_time_widgets();
 	void synchronize_show_option();
 	void update_displayers();
+	void update_SVD();
 
 signals:
 	void current_time_updated(double currentTime);

@@ -127,6 +127,7 @@ void DroneSimulator::prepare_simulation(const double& timeWindow)
 	m_dynamicVD.fenceWidth = m_fenceWidth;
 	m_dynamicVD.fenceHeight = m_fenceHeight;
 	check_collision_between_fence_and_obstacles();
+	color_next_event();
 }
 
 

@@ -5,6 +5,7 @@
 #include "DroneSimulator.h"
 #include "constForDroneDisplayer.h"
 #include "Color3f.h"
+#include "BallSetVoronoiDiagramCore.h"
 
 #include <list>
 
@@ -18,6 +19,7 @@ class DroneDisplayerWidget : public VDRCOpenGLWidget
 
 public:
 	DroneSimulator * m_pSimulator;
+	BallSetVoronoiDiagramCore* m_pVD;
 	bool m_bShowDVD;
 
 	SHOW_HUNTER		m_hunterVisualizationOption;

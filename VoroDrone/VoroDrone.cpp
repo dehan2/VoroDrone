@@ -114,6 +114,27 @@ void VoroDrone::update_displayers()
 
 
 
+void VoroDrone::update_SVD()
+{
+	m_SVD.clear();
+
+	list<tuple<Sphere, void*, int>> dynamicBalls;
+	list<BallGeneratorCore*> generators;
+	m_simulator.get_dynamic_VD().getAllGenerators(generators);
+	int counter = 0;
+	for (auto& generator : generators)
+	{
+		if (generator->getInputID() >= 2)
+		{
+			DynamicBall* dynamicBall = static_cast<DynamicBall*>(generator->getUserData());
+			dynamicBalls.push_back(make_tuple(generator->getBall(), dynamicBall, dynamicBall->get_ID()));
+		}
+	}
+	m_SVD.compute(dynamicBalls, TOPOLOGY_ORIENTED_INCREMENTAL);
+}
+
+
+
 void VoroDrone::generate_drones_and_prepare_simulation()
 {
 	m_simulator.set_n(ui.lineEdit_n->text().toInt());
@@ -140,6 +161,9 @@ void VoroDrone::generate_drones_and_prepare_simulation()
 	ui.droneDisplayer->m_pSimulator = &m_simulator;
 	ui.droneDisplayer->set_local_origin(0, 0, m_simulator.get_fence_height() / 2);
 	
+	//update_SVD();
+	ui.droneDisplayer->m_pVD = &m_SVD;
+
 	show_option_changed();
 }
 
@@ -206,8 +230,10 @@ void VoroDrone::increase_simulation_time()
 	if (currTime < timeWindow)
 	{
 		m_simulator.increase_time(m_playSpeed*0.1);
-		currTime = m_simulator.get_dynamic_VD().get_current_time();
 		update_current_time_widgets();
+
+		//update_VD();
+
 		//ui.droneDisplayer->update();
 		update_displayers();
 	}
@@ -317,6 +343,9 @@ void VoroDrone::load_drone_informations()
 
 	ui.horizontalSlider_time->setMaximum((int)timeWindow);
 
+	update_SVD();
+	ui.droneDisplayer->m_pVD = &m_SVD;
+
 	ui.droneDisplayer->m_pSimulator = &m_simulator;
 	ui.droneDisplayer->set_local_origin(0, 0, m_simulator.get_fence_height() / 2);
 	show_option_changed();
@@ -418,7 +447,7 @@ void VoroDrone::generate_path_from_hunter_to_bug()
 			m_pathComputationCounter = 1;
 		}
 		
-		list<pair<rg_Point3D, double>>& wayPoints = m_simulator.get_hunter_way_points();
+		list<pair<rg_Point3D, DECIMAL>>& wayPoints = m_simulator.get_hunter_way_points();
 		
 		//Simulation
 		float targetTime = m_simulator.get_hunter().get_time();
@@ -431,7 +460,7 @@ void VoroDrone::generate_path_from_hunter_to_bug()
 			targetTime += 0.45;
 		}
 		
-		pair<rg_Point3D, double>* targetWP = nullptr;
+		pair<rg_Point3D, DECIMAL>* targetWP = nullptr;
 		for (auto& wp : wayPoints)
 		{
 			if (wp.second > targetTime)

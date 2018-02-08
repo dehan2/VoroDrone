@@ -1,6 +1,7 @@
 #include "DroneDisplayerWidget.h"
 #include "constForDroneDisplayer.h"
 #include "ShorestPathAvoidingSphericalObstacles.h"
+#include <set>
 
 DroneDisplayerWidget::DroneDisplayerWidget(QWidget *parent)
 	: VDRCOpenGLWidget(parent)
@@ -191,6 +192,7 @@ void DroneDisplayerWidget::draw_hunter_trajectory()
 }
 
 
+
 void DroneDisplayerWidget::draw()
 {
 	draw_objects(HUNTER_COLOR, BUG_COLOR, OBSTACLE_COLOR);
@@ -200,6 +202,48 @@ void DroneDisplayerWidget::draw()
 		list<VEdgeCore*> VEdgesOfDVD;
 		m_pSimulator->collect_edges_for_drawing(VEdgesOfDVD);
 		draw_DVD_edges(VEdgesOfDVD, VEDGE_THICKNESS, BLACK);
+
+		/*set<VVertexCore*> vertices;
+		for (auto& edge : VEdgesOfDVD)
+		{
+			vertices.insert(edge->getStartVVertex());
+			vertices.insert(edge->getEndVVertex());
+		}
+
+		for (auto& vertex : vertices)
+		{
+			if (m_pSimulator->get_infos().vertexColorMap.count(vertex) > 0)
+			{
+				draw_point(vertex->getPoint(), 10, m_pSimulator->get_infos().vertexColorMap.at(vertex), 5.0, vertex->getID()*NUM_PICKING_CLASS + CLASS_VVERTEX);
+				/ *if (m_pSimulator->get_infos().vertexColorMap.at(vertex).getR() == RED.getR())
+				{
+					localOrigin = vertex->getPoint();
+					m_eyeDistance = 10;
+				}* /
+					
+			}
+			else
+			{
+				draw_point(vertex->getPoint(), 10, BLACK, 1.0, vertex->getID()*NUM_PICKING_CLASS + CLASS_VVERTEX);
+			}
+		}
+			
+		enlist_VVertices(vertices);*/
+
+		/*list<VEdgeCore*> edgesOfVD;
+		list<VEdgeCore*> allEdges;
+		m_pVD->getAllVEdges(allEdges);
+
+		for (list<VEdgeCore*>::iterator itForEdge = allEdges.begin(); itForEdge != allEdges.end(); itForEdge++)
+		{
+			VEdgeCore* currEdge = *itForEdge;
+
+			if (currEdge->isInfinite() == false && currEdge->will_be_deleted() == false)
+			{
+				edgesOfVD.push_back(currEdge);
+			}
+		}
+		draw_DVD_edges(edgesOfVD, VEDGE_THICKNESS, RED);*/
 	}
 
 	if (m_bShowHunterTrajectory)
@@ -235,9 +279,9 @@ void DroneDisplayerWidget::draw_DVD_edges(const list<VEdgeCore*>& edges, const i
 		rg_Point3D pt2 = edge->getEndVVertex()->getPoint();
 		//draw_line(pt1, pt2, width, color, A);
 
-		if (m_pSimulator->get_dynamic_VD().edgeColorMap.count(edge) > 0)
+		if (m_pSimulator->get_infos().edgeColorMap.count(edge) > 0)
 		{
-			draw_line(pt1, pt2, 5*width, m_pSimulator->get_dynamic_VD().edgeColorMap.at(edge), A);
+			draw_line(pt1, pt2, 5*width, m_pSimulator->get_infos().edgeColorMap.at(edge), A);
 		}
 		else
 		{
