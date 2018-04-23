@@ -15,6 +15,7 @@ class DroneSimulator : public DynamicSimulator3D
 {
 private:
 	DynamicBall m_hunter;
+	DynamicBall m_hunter2;
 	DynamicBall m_bug;
 	list<DynamicBall> m_obstacles;
 
@@ -30,10 +31,6 @@ private:
 	float m_fenceWidth;	//Y
 	float m_fenceHeight;	//Z
 	float m_pathComputationInterval;
-
-	double m_homeLatitude;
-	double m_homeLongtitude;
-	double m_homeAltitude;
 
 	map<const DynamicBall*, Color3f> m_obstacleColorMap;
 	list<rg_Point3D> m_hunterTrajectory;
@@ -60,9 +57,6 @@ public:
 	inline list<pair<rg_Point3D, DECIMAL>>& get_hunter_way_points() { return m_hunterWayPoints; }
 	inline const list<pair<rg_Point3D, DECIMAL>>& get_bug_way_points() const { return m_bugWayPoints; }
 
-	inline double get_home_latitude() const { return m_homeLatitude; }
-	inline double get_home_longtitude() const { return m_homeLongtitude; }
-	inline double get_home_altitude() const { return m_homeAltitude; }
 	inline const map<const DynamicBall*, Color3f>& get_obstacle_color_map() const { return m_obstacleColorMap; }
 
 	inline void set_n(const int& n) { m_n = n; }
@@ -76,11 +70,8 @@ public:
 	inline void set_fence_height(const float& fenceHeight) { m_fenceHeight = fenceHeight; }
 	inline void set_path_compuation_interval(const float& pathComputationInterval) { m_pathComputationInterval = pathComputationInterval; }
 
-	inline void set_home_latitude(const double& latitude) { m_homeLatitude = latitude; }
-	inline void set_home_longtitude(const double& longtitude) { m_homeLongtitude = longtitude; }
-	inline void set_home_altitude(const double& altitude) { m_homeAltitude = altitude; }
-
 	inline const DynamicBall& get_hunter() const { return m_hunter; }
+	inline const DynamicBall& get_hunter2() const { return m_hunter2; }
 	inline const DynamicBall& get_bug() const { return m_bug; }
 	inline const list<DynamicBall>& get_obstacles() const { return m_obstacles; }
 	inline const list<rg_Point3D>& get_hunter_trajectory() const { return m_hunterTrajectory; }
@@ -88,6 +79,8 @@ public:
 	inline void set_hunter_location(const float& x, const float& y, const float& z) { m_hunter.set_sphere_center(rg_Point3D(x, y, z)); }
 	inline void set_hunter_speed(const float& hunterSpeed) { m_hunterSpeed = hunterSpeed; }
 	inline void set_hunter_time(const float& time) { m_hunter.set_time(time); }
+
+	inline void set_hunter2_location(const float& x, const float& y, const float& z) { m_hunter2.set_sphere_center(rg_Point3D(x, y, z)); }
 
 	inline void set_bug_speed(const float& bugSpeed) { m_bugSpeed = bugSpeed; }
 	inline void set_bug_generation_mode(const BUG_GENERATION_MODE& mode) { m_bugGenerationMode = mode; }

@@ -53,8 +53,8 @@ void DroneSimulator::generate_drones_in_fence(const float& fenceLength, const fl
 	default_random_engine engine;
 	engine.seed(time(0));
 
-	float obstacleRadius = m_r + m_theta;
-	float cellSize = 2*obstacleRadius + margin;
+	float obstacleRadius = 2*(m_r + m_theta) + m_maxV * m_pathComputationInterval;
+	float cellSize = obstacleRadius + margin;
 	//float cellSize = 2*(m_r + m_theta) + m_maxV*m_pathComputationInterval+margin;
 
 	int numCell_x = floor(fenceLength / (2*cellSize));
@@ -85,8 +85,7 @@ void DroneSimulator::generate_drones_in_fence(const float& fenceLength, const fl
 					Sphere sphere(rg_Point3D(fRand(engine)*margin + (2 * i + 1)* cellSize, fRand(engine)*margin + (2 * j+ 1)* cellSize, 
 						fRand(engine)*margin + (2 * k + 1)* cellSize)+startCorner, obstacleRadius);
 					rg_Point3D velocity = rg_Point3D(fRand(engine), fRand(engine), fRand(engine));
-					float ratio = fRand(engine);
-					velocity = velocity.getUnitVector()*((1 - ratio)*m_maxV + ratio * m_minV);
+					velocity = velocity.getUnitVector()*m_maxV;
 					m_obstacles.push_back(DynamicBall(m_obstacles.size() + 2, LINEAR_BALL, sphere, velocity));
 				}
 			}
@@ -109,23 +108,25 @@ void DroneSimulator::prepare_simulation(const double& timeWindow)
 	tetrahedronVertices[1] = 200 *rg_Point3D(-1, 0, -0.707);
 	tetrahedronVertices[2] = 200 *rg_Point3D(0, 1, 0.707);
 	tetrahedronVertices[3] = 200 *rg_Point3D(0, -1, 0.707);
-	tetrahedronVertices[4] = 150 *rg_Point3D(-1, 0, 0.707);
+	/*tetrahedronVertices[4] = 150 *rg_Point3D(-1, 0, 0.707);
 	tetrahedronVertices[5] = 150 *rg_Point3D(1, 0, 0.707);
 	tetrahedronVertices[6] = 150 *rg_Point3D(0, -1, -0.707);
-	tetrahedronVertices[7] = 150 *rg_Point3D(0, 1, -0.707);
+	tetrahedronVertices[7] = 150 *rg_Point3D(0, 1, -0.707);*/
 
 	int beginningIDOfPhantom = m_dynamicBalls.size() + 3;
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		m_dynamicBalls.push_back(new DynamicBall(beginningIDOfPhantom + i, STATIC_BALL, Sphere(tetrahedronVertices[i], m_r), rg_Point3D()));
 	}
+	
+	m_dynamicVD.set_fence_setted_up(true);
+	m_dynamicVD.set_fence_length(m_fenceLength);
+	m_dynamicVD.set_fence_width(m_fenceWidth);
+	m_dynamicVD.set_fence_height(m_fenceHeight);
 
 	m_dynamicVD.construct_initial_VD(m_dynamicBalls);
 	m_dynamicVD.set_time_window(timeWindow);
 	m_dynamicVD.construct_initial_event_queue();
-	m_dynamicVD.fenceLength = m_fenceLength;
-	m_dynamicVD.fenceWidth = m_fenceWidth;
-	m_dynamicVD.fenceHeight = m_fenceHeight;
 	check_collision_between_fence_and_obstacles();
 	color_next_event();
 }
@@ -174,7 +175,7 @@ void DroneSimulator::load_drone_informations(const string& filePath)
 	m_fenceHeight = atof(strtok(NULL, seps));
 	m_pathComputationInterval = atof(strtok(NULL, seps));
 
-	float obstacleRadius = m_r + m_theta;
+	float obstacleRadius = 2*(m_r + m_theta)+m_maxV*m_pathComputationInterval;
 
 	for (int i = 0; i < m_n-2; i++)
 	{
@@ -211,7 +212,7 @@ void DroneSimulator::find_shortest_path_from_hunter_to_bug()
 	list<Sphere> enlargedObstacles;
 	for (list<DynamicBall>::const_iterator itForObstacle = m_obstacles.cbegin(); itForObstacle != m_obstacles.cend(); itForObstacle++)
 	{
-		Sphere enlargedObstacle((*itForObstacle).get_sphere().getCenter(), (*itForObstacle).get_sphere().getRadius() + shortestPathMargin);
+		Sphere enlargedObstacle((*itForObstacle).get_sphere().getCenter(), (*itForObstacle).get_sphere().getRadius()- m_hunter.get_sphere().getRadius()/* + shortestPathMargin*/);
 		if (enlargedObstacle.intersect(m_hunter.get_sphere()) == SI_NOT_INTERSECT)
 		{
 			enlargedObstacles.push_back(enlargedObstacle);

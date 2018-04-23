@@ -30,9 +30,11 @@ void DroneDisplayerWidget::draw_objects(const Color3f& hunterColor, const Color3
 			{
 			case H_POINT:
 				draw_point(m_pSimulator->get_hunter().get_sphere().getCenter(), 10.0, hunterColor);
+				//draw_point(m_pSimulator->get_hunter2().get_sphere().getCenter(), 10.0, hunterColor);
 				break;
 			case H_BALL:
 				draw_sphere(m_pSimulator->get_hunter().get_sphere().getCenter(), m_pSimulator->get_hunter().get_sphere().getRadius(), hunterColor);
+				//draw_sphere(m_pSimulator->get_hunter2().get_sphere().getCenter(), m_pSimulator->get_hunter2().get_sphere().getRadius(), hunterColor);
 				break;
 			case H_HIDE:
 			default:
@@ -62,7 +64,7 @@ void DroneDisplayerWidget::draw_objects(const Color3f& hunterColor, const Color3
 			if (m_bShowNeighbors)
 				m_pSimulator->color_hunter_neighbors(YELLOW);
 
-			//float enlargedValue = m_pSimulator->get_r()+m_pSimulator->get_theta()+m_pSimulator->get_maxV()*m_pSimulator->get_path_computation_interval();
+			float enlargedValue = m_pSimulator->get_r()+m_pSimulator->get_theta()+m_pSimulator->get_maxV()*m_pSimulator->get_path_computation_interval();
 
 			const map<const DynamicBall*, Color3f>& obstacleColorMap = m_pSimulator->get_obstacle_color_map();
 			for (list<DynamicBall>::const_iterator itForObstacle = m_pSimulator->get_obstacles().cbegin(); itForObstacle != m_pSimulator->get_obstacles().cend(); itForObstacle++)
@@ -80,11 +82,11 @@ void DroneDisplayerWidget::draw_objects(const Color3f& hunterColor, const Color3
 					draw_point(obstacleCenter, 10.0, colorForBall);
 					break;
 				case O_BALL:
-					draw_sphere(obstacleCenter, (*itForObstacle).get_sphere().getRadius(), colorForBall);
+					draw_sphere(obstacleCenter, (*itForObstacle).get_sphere().getRadius()-enlargedValue, colorForBall);
 					//draw_velocity_cone(&(*itForObstacle), obstacleColor);
 					break;
 				case O_ENLARGED:
-					draw_sphere(obstacleCenter, 2*(*itForObstacle).get_sphere().getRadius(), colorForBall);
+					draw_sphere(obstacleCenter, (*itForObstacle).get_sphere().getRadius(), colorForBall);
 					//draw_velocity_cone(&(*itForObstacle), obstacleColor);
 					break;
 				case O_HIDE:
@@ -94,8 +96,7 @@ void DroneDisplayerWidget::draw_objects(const Color3f& hunterColor, const Color3
 			}
 		}
 
-		//draw_fence(m_pSimulator->get_fence_length(), m_pSimulator->get_fence_width(), m_pSimulator->get_fence_height());
-		//draw_drone_roll();
+		draw_fence(m_pSimulator->get_fence_length(), m_pSimulator->get_fence_width(), m_pSimulator->get_fence_height());
 	}
 }
 

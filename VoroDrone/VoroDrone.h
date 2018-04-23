@@ -21,10 +21,12 @@ class VoroDrone : public QMainWindow
 	QTimer* m_simulationTimer;
 	QTimer* m_pathFindingTimer;
 	QMutex m_mutex;
+	QMutex m_mutex2;
 
 	BallSetVoronoiDiagramCore m_SVD;
 
 	DroneCommunicatorThread* m_droneCommunicator;
+	DroneCommunicatorThread* m_droneCommunicator2;
 	int m_pathComputationCounter;
 
 	DroneDisplayerWidget* xyView;

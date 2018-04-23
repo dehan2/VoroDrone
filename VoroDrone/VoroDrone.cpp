@@ -1,11 +1,13 @@
 #include "VoroDrone.h"
+#include <random>
+#include <ctime>
 
 VoroDrone::VoroDrone(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
 
-	m_playSpeed = 1.0e-2;
+	m_playSpeed = 1.0;
 	
 	m_simulationTimer = new QTimer(this);
 	connect(m_simulationTimer, SIGNAL(timeout()), this, SLOT(increase_simulation_time()));
@@ -259,7 +261,7 @@ void VoroDrone::go_to_target_time(double targetTime)
 	float currTime = m_simulator.get_dynamic_VD().get_current_time();
 	float timeWindow = m_simulator.get_dynamic_VD().get_time_window();
 
-	if (currTime < EVENT_HORIZON)
+	if (currTime < timeWindow)
 	{
 		m_simulator.go_to_time(targetTime);
 
@@ -360,6 +362,11 @@ void VoroDrone::connect_to_hunter()
 	m_droneCommunicator->initialize(address.toStdString());
 	connect(m_droneCommunicator, SIGNAL(hunter_location_updated()), this, SLOT(update_drone_information()));
 	m_droneCommunicator->start();
+
+	QString address2 = ui.lineEdit_drone_address2->text();
+	m_droneCommunicator2 = new DroneCommunicatorThread(this, &m_mutex2);
+	m_droneCommunicator2->initialize(address2.toStdString());
+	m_droneCommunicator2->start();
 }
 
 
@@ -367,21 +374,42 @@ void VoroDrone::connect_to_hunter()
 void VoroDrone::take_off_hunter()
 {
 	m_droneCommunicator->bTakeOff = true;
+	m_droneCommunicator2->bTakeOff = true;
 }
 
 
 
 void VoroDrone::hunt_bug()
 {
-	if (m_pathFindingTimer->isActive() == false)
+	/*if (m_pathFindingTimer->isActive() == false)
 	{
 		m_pathFindingTimer->start(500);
 	}
 	else
 	{
 		m_pathFindingTimer->stop();
-	}
+	}*/
 
+	rg_Point3D hunterLocation1 = m_simulator.get_hunter().get_sphere_center();
+	rg_Point3D hunterLocation2 = m_simulator.get_hunter2().get_sphere_center();
+
+	default_random_engine engine;
+	engine.seed(time(0));
+
+	uniform_int_distribution<int> dist{ -1, 1 };
+	int deltaX = dist(engine);
+	int deltaY = dist(engine);
+
+	m_droneCommunicator->targetX = hunterLocation1.getX() + deltaX;
+	m_droneCommunicator2->targetX = hunterLocation2.getX() + deltaX;
+
+	m_droneCommunicator->targetY = hunterLocation1.getY() + deltaY;
+	m_droneCommunicator2->targetY = hunterLocation2.getY() + deltaY;
+
+	m_droneCommunicator->bGoTo = true;
+	m_droneCommunicator2->bGoTo = true;
+
+	cout << "Drone will move to X: " << deltaX << ", Y: " << deltaY << endl;
 	
 	/*m_simulator.find_shortest_path_from_hunter_to_bug();
 	const list<pair<rg_Point3D, double>>& wayPoints = m_simulator.get_hunter_way_points();
@@ -398,6 +426,7 @@ void VoroDrone::hunt_bug()
 void VoroDrone::land_hunter()
 {
 	m_droneCommunicator->bLand = true;
+	m_droneCommunicator2->bLand = true;
 }
 
 
@@ -414,8 +443,21 @@ void VoroDrone::update_drone_information()
 
 	array<float, 3> coord = m_droneCommunicator->calculate_drone_coord();
 	m_simulator.set_hunter_location(coord.at(0), coord.at(1), coord.at(2));
-	m_simulator.update_hunter_trajectory();
+	array<float, 3> coord2 = m_droneCommunicator2->calculate_drone_coord();
+	m_simulator.set_hunter_location(coord2.at(0), coord2.at(1), coord2.at(2));
+	//m_simulator.update_hunter_trajectory();
 	//ui.droneDisplayer->update();
+
+	float altitude2 = m_droneCommunicator2->droneAlt;
+	float longtitude2 = m_droneCommunicator2->droneLon;
+	float latitude2 = m_droneCommunicator2->droneLat;
+
+	ui.label_hunter_alt2->setText(QString::number(altitude2));
+	ui.label_hunter_lat2->setText(QString::number(latitude2));
+	ui.label_hunter_lon2->setText(QString::number(longtitude2));
+
+	
+
 	update_displayers();
 }
 

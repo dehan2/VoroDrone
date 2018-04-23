@@ -96,6 +96,14 @@ public:
     QLabel *label_hunter_lat;
     QLabel *label_hunter_lon;
     QLabel *label_hunter_alt;
+    QHBoxLayout *horizontalLayout_19;
+    QLabel *label_13;
+    QLineEdit *lineEdit_drone_address2;
+    QHBoxLayout *horizontalLayout_20;
+    QLabel *label_14;
+    QLabel *label_hunter_lat2;
+    QLabel *label_hunter_lon2;
+    QLabel *label_hunter_alt2;
     QHBoxLayout *horizontalLayout_14;
     QPushButton *pushButton_connect_drone;
     QPushButton *pushButton_take_off;
@@ -127,11 +135,10 @@ public:
     QRadioButton *radioButton_bug_ball;
     QRadioButton *radioButton_bug_hide;
     QGroupBox *groupBox_5;
-    QVBoxLayout *verticalLayout_6;
-    QRadioButton *radioButton_obstacle_with_safe_distance;
     QHBoxLayout *horizontalLayout_7;
     QRadioButton *radioButton_obstacle_point;
     QRadioButton *radioButton_obstacle_ball;
+    QRadioButton *radioButton_obstacle_with_safe_distance;
     QRadioButton *radioButton_obstacle_hide;
     QGroupBox *groupBox_8;
     QHBoxLayout *horizontalLayout_15;
@@ -149,7 +156,7 @@ public:
     {
         if (VoroDroneClass->objectName().isEmpty())
             VoroDroneClass->setObjectName(QStringLiteral("VoroDroneClass"));
-        VoroDroneClass->resize(716, 769);
+        VoroDroneClass->resize(716, 876);
         centralWidget = new QWidget(VoroDroneClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         horizontalLayout = new QHBoxLayout(centralWidget);
@@ -179,7 +186,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(dockWidget_2->sizePolicy().hasHeightForWidth());
         dockWidget_2->setSizePolicy(sizePolicy);
-        dockWidget_2->setMinimumSize(QSize(412, 716));
+        dockWidget_2->setMinimumSize(QSize(412, 770));
         dockWidgetContents_2 = new QWidget();
         dockWidgetContents_2->setObjectName(QStringLiteral("dockWidgetContents_2"));
         verticalLayout = new QVBoxLayout(dockWidgetContents_2);
@@ -465,6 +472,54 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout_11);
 
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setSpacing(6);
+        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
+        label_13 = new QLabel(groupBox_6);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_19->addWidget(label_13);
+
+        lineEdit_drone_address2 = new QLineEdit(groupBox_6);
+        lineEdit_drone_address2->setObjectName(QStringLiteral("lineEdit_drone_address2"));
+        lineEdit_drone_address2->setMaximumSize(QSize(200, 16777215));
+        lineEdit_drone_address2->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_19->addWidget(lineEdit_drone_address2);
+
+
+        verticalLayout_7->addLayout(horizontalLayout_19);
+
+        horizontalLayout_20 = new QHBoxLayout();
+        horizontalLayout_20->setSpacing(6);
+        horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
+        label_14 = new QLabel(groupBox_6);
+        label_14->setObjectName(QStringLiteral("label_14"));
+
+        horizontalLayout_20->addWidget(label_14);
+
+        label_hunter_lat2 = new QLabel(groupBox_6);
+        label_hunter_lat2->setObjectName(QStringLiteral("label_hunter_lat2"));
+        label_hunter_lat2->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(label_hunter_lat2);
+
+        label_hunter_lon2 = new QLabel(groupBox_6);
+        label_hunter_lon2->setObjectName(QStringLiteral("label_hunter_lon2"));
+        label_hunter_lon2->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(label_hunter_lon2);
+
+        label_hunter_alt2 = new QLabel(groupBox_6);
+        label_hunter_alt2->setObjectName(QStringLiteral("label_hunter_alt2"));
+        label_hunter_alt2->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(label_hunter_alt2);
+
+
+        verticalLayout_7->addLayout(horizontalLayout_20);
+
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setSpacing(6);
         horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
@@ -586,7 +641,7 @@ public:
         horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
         radioButton_hunter_ball = new QRadioButton(groupBox_3);
         radioButton_hunter_ball->setObjectName(QStringLiteral("radioButton_hunter_ball"));
-        radioButton_hunter_ball->setChecked(true);
+        radioButton_hunter_ball->setChecked(false);
 
         horizontalLayout_16->addWidget(radioButton_hunter_ball);
 
@@ -598,6 +653,7 @@ public:
 
         radioButton_hunter_hide = new QRadioButton(groupBox_3);
         radioButton_hunter_hide->setObjectName(QStringLiteral("radioButton_hunter_hide"));
+        radioButton_hunter_hide->setChecked(true);
 
         horizontalLayout_16->addWidget(radioButton_hunter_hide);
 
@@ -627,12 +683,13 @@ public:
         radioButton_bug_ball = new QRadioButton(groupBox_4);
         radioButton_bug_ball->setObjectName(QStringLiteral("radioButton_bug_ball"));
         radioButton_bug_ball->setCheckable(true);
-        radioButton_bug_ball->setChecked(true);
+        radioButton_bug_ball->setChecked(false);
 
         horizontalLayout_6->addWidget(radioButton_bug_ball);
 
         radioButton_bug_hide = new QRadioButton(groupBox_4);
         radioButton_bug_hide->setObjectName(QStringLiteral("radioButton_bug_hide"));
+        radioButton_bug_hide->setChecked(true);
 
         horizontalLayout_6->addWidget(radioButton_bug_hide);
 
@@ -641,18 +698,9 @@ public:
 
         groupBox_5 = new QGroupBox(tab_2);
         groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
-        verticalLayout_6 = new QVBoxLayout(groupBox_5);
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        radioButton_obstacle_with_safe_distance = new QRadioButton(groupBox_5);
-        radioButton_obstacle_with_safe_distance->setObjectName(QStringLiteral("radioButton_obstacle_with_safe_distance"));
-        radioButton_obstacle_with_safe_distance->setChecked(false);
-
-        verticalLayout_6->addWidget(radioButton_obstacle_with_safe_distance);
-
-        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7 = new QHBoxLayout(groupBox_5);
         horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         radioButton_obstacle_point = new QRadioButton(groupBox_5);
         radioButton_obstacle_point->setObjectName(QStringLiteral("radioButton_obstacle_point"));
@@ -662,17 +710,20 @@ public:
         radioButton_obstacle_ball = new QRadioButton(groupBox_5);
         radioButton_obstacle_ball->setObjectName(QStringLiteral("radioButton_obstacle_ball"));
         radioButton_obstacle_ball->setLayoutDirection(Qt::LeftToRight);
-        radioButton_obstacle_ball->setChecked(true);
+        radioButton_obstacle_ball->setChecked(false);
 
         horizontalLayout_7->addWidget(radioButton_obstacle_ball);
+
+        radioButton_obstacle_with_safe_distance = new QRadioButton(groupBox_5);
+        radioButton_obstacle_with_safe_distance->setObjectName(QStringLiteral("radioButton_obstacle_with_safe_distance"));
+        radioButton_obstacle_with_safe_distance->setChecked(true);
+
+        horizontalLayout_7->addWidget(radioButton_obstacle_with_safe_distance);
 
         radioButton_obstacle_hide = new QRadioButton(groupBox_5);
         radioButton_obstacle_hide->setObjectName(QStringLiteral("radioButton_obstacle_hide"));
 
         horizontalLayout_7->addWidget(radioButton_obstacle_hide);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_7);
 
 
         verticalLayout_5->addWidget(groupBox_5);
@@ -699,7 +750,7 @@ public:
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
         checkBox_show_DVD = new QCheckBox(groupBox_7);
         checkBox_show_DVD->setObjectName(QStringLiteral("checkBox_show_DVD"));
-        checkBox_show_DVD->setChecked(true);
+        checkBox_show_DVD->setChecked(false);
 
         horizontalLayout_10->addWidget(checkBox_show_DVD);
 
@@ -779,16 +830,16 @@ public:
     {
         VoroDroneClass->setWindowTitle(QApplication::translate("VoroDroneClass", "H-Mapper", 0));
         groupBox->setTitle(QApplication::translate("VoroDroneClass", "Generate Drones", 0));
-        lineEdit_theta->setText(QApplication::translate("VoroDroneClass", "0.5", 0));
-        lineEdit_r->setText(QApplication::translate("VoroDroneClass", "0.5", 0));
+        lineEdit_theta->setText(QApplication::translate("VoroDroneClass", "0.25", 0));
+        lineEdit_r->setText(QApplication::translate("VoroDroneClass", "0.25", 0));
         label->setText(QApplication::translate("VoroDroneClass", "Drone radius(m)", 0));
         label_3->setText(QApplication::translate("VoroDroneClass", "#Obstacles", 0));
         lineEdit_n->setText(QApplication::translate("VoroDroneClass", "100", 0));
         label_2->setText(QApplication::translate("VoroDroneClass", "Safety distance(m)", 0));
         label_10->setText(QApplication::translate("VoroDroneClass", "Fence size(L/W/H, m)", 0));
-        lineEdit_fence_length->setText(QApplication::translate("VoroDroneClass", "50", 0));
-        lineEdit_fence_width->setText(QApplication::translate("VoroDroneClass", "50", 0));
-        lineEdit_fence_height->setText(QApplication::translate("VoroDroneClass", "10", 0));
+        lineEdit_fence_length->setText(QApplication::translate("VoroDroneClass", "100", 0));
+        lineEdit_fence_width->setText(QApplication::translate("VoroDroneClass", "100", 0));
+        lineEdit_fence_height->setText(QApplication::translate("VoroDroneClass", "100", 0));
         label_8->setText(QApplication::translate("VoroDroneClass", "Path computation interval(s)", 0));
         lineEdit_path_computation_interval->setText(QApplication::translate("VoroDroneClass", "0.5", 0));
         pushButton_generate_drones->setText(QApplication::translate("VoroDroneClass", "Generate", 0));
@@ -809,6 +860,12 @@ public:
         label_hunter_lat->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         label_hunter_lon->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         label_hunter_alt->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
+        label_13->setText(QApplication::translate("VoroDroneClass", "Address", 0));
+        lineEdit_drone_address2->setText(QApplication::translate("VoroDroneClass", "udp:127.0.0.1:14550", 0));
+        label_14->setText(QApplication::translate("VoroDroneClass", "Lat./Lon./Alt.", 0));
+        label_hunter_lat2->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
+        label_hunter_lon2->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
+        label_hunter_alt2->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         pushButton_connect_drone->setText(QApplication::translate("VoroDroneClass", "Connect to drone", 0));
         pushButton_take_off->setText(QApplication::translate("VoroDroneClass", "Take off", 0));
         pushButton_hunter_land->setText(QApplication::translate("VoroDroneClass", "Land", 0));
@@ -829,9 +886,9 @@ public:
         radioButton_bug_ball->setText(QApplication::translate("VoroDroneClass", "Ball", 0));
         radioButton_bug_hide->setText(QApplication::translate("VoroDroneClass", "Hide", 0));
         groupBox_5->setTitle(QApplication::translate("VoroDroneClass", "Obstacles", 0));
-        radioButton_obstacle_with_safe_distance->setText(QApplication::translate("VoroDroneClass", "Enlarged by safe distance", 0));
         radioButton_obstacle_point->setText(QApplication::translate("VoroDroneClass", "Point", 0));
         radioButton_obstacle_ball->setText(QApplication::translate("VoroDroneClass", "Ball", 0));
+        radioButton_obstacle_with_safe_distance->setText(QApplication::translate("VoroDroneClass", "Enlarged ", 0));
         radioButton_obstacle_hide->setText(QApplication::translate("VoroDroneClass", "Hide", 0));
         groupBox_8->setTitle(QApplication::translate("VoroDroneClass", "Proximity Informations", 0));
         checkBox_neighbors->setText(QApplication::translate("VoroDroneClass", "Neighbors", 0));

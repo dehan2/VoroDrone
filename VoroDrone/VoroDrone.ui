@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>716</width>
-    <height>769</height>
+    <height>876</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,7 +49,7 @@
    <property name="minimumSize">
     <size>
      <width>412</width>
-     <height>716</height>
+     <height>770</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -102,7 +102,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>0.5</string>
+                 <string>0.25</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -130,7 +130,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>0.5</string>
+                 <string>0.25</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -212,7 +212,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>50</string>
+                 <string>100</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -228,7 +228,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>50</string>
+                 <string>100</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -244,7 +244,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>10</string>
+                 <string>100</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -504,6 +504,77 @@
              </layout>
             </item>
             <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_19">
+              <item>
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>Address</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_drone_address2">
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>udp:127.0.0.1:14550</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_20">
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>Lat./Lon./Alt.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_hunter_lat2">
+                <property name="text">
+                 <string>NULL</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_hunter_lon2">
+                <property name="text">
+                 <string>NULL</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_hunter_alt2">
+                <property name="text">
+                 <string>NULL</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
              <layout class="QHBoxLayout" name="horizontalLayout_14">
               <item>
                <widget class="QPushButton" name="pushButton_connect_drone">
@@ -682,7 +753,7 @@
                  <string>Ball</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -700,6 +771,9 @@
                <widget class="QRadioButton" name="radioButton_hunter_hide">
                 <property name="text">
                  <string>Hide</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -740,7 +814,7 @@
                <bool>true</bool>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </item>
@@ -748,6 +822,9 @@
              <widget class="QRadioButton" name="radioButton_bug_hide">
               <property name="text">
                <string>Hide</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -759,11 +836,21 @@
            <property name="title">
             <string>Obstacles</string>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
-             <widget class="QRadioButton" name="radioButton_obstacle_with_safe_distance">
+             <widget class="QRadioButton" name="radioButton_obstacle_point">
               <property name="text">
-               <string>Enlarged by safe distance</string>
+               <string>Point</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="radioButton_obstacle_ball">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="text">
+               <string>Ball</string>
               </property>
               <property name="checked">
                <bool>false</bool>
@@ -771,35 +858,21 @@
              </widget>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
-              <item>
-               <widget class="QRadioButton" name="radioButton_obstacle_point">
-                <property name="text">
-                 <string>Point</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="radioButton_obstacle_ball">
-                <property name="layoutDirection">
-                 <enum>Qt::LeftToRight</enum>
-                </property>
-                <property name="text">
-                 <string>Ball</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="radioButton_obstacle_hide">
-                <property name="text">
-                 <string>Hide</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <widget class="QRadioButton" name="radioButton_obstacle_with_safe_distance">
+              <property name="text">
+               <string>Enlarged </string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="radioButton_obstacle_hide">
+              <property name="text">
+               <string>Hide</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -832,7 +905,7 @@
                <string>Show</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </item>
@@ -1000,7 +1073,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>681</x>
+     <x>594</x>
      <y>263</y>
     </hint>
     <hint type="destinationlabel">
@@ -1016,8 +1089,8 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>444</x>
-     <y>286</y>
+     <x>416</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1032,8 +1105,8 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>562</x>
-     <y>286</y>
+     <x>505</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1048,8 +1121,8 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>680</x>
-     <y>286</y>
+     <x>683</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1065,7 +1138,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>682</x>
-     <y>649</y>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1081,7 +1154,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>633</x>
-     <y>678</y>
+     <y>706</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1097,7 +1170,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>682</x>
-     <y>706</y>
+     <y>734</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1113,7 +1186,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>452</x>
-     <y>708</y>
+     <y>736</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1144,8 +1217,8 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>681</x>
-     <y>395</y>
+     <x>683</x>
+     <y>371</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1193,7 +1266,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>446</x>
-     <y>560</y>
+     <y>588</y>
     </hint>
     <hint type="destinationlabel">
      <x>651</x>
@@ -1209,7 +1282,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>564</x>
-     <y>560</y>
+     <y>588</y>
     </hint>
     <hint type="destinationlabel">
      <x>569</x>
@@ -1225,7 +1298,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>683</x>
-     <y>590</y>
+     <y>618</y>
     </hint>
     <hint type="destinationlabel">
      <x>565</x>
@@ -1241,7 +1314,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>682</x>
-     <y>560</y>
+     <y>588</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -1256,8 +1329,8 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>350</x>
-     <y>334</y>
+     <x>666</x>
+     <y>317</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1305,10 +1378,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>443</x>
-     <y>432</y>
+     <y>411</y>
     </hint>
     <hint type="destinationlabel">
-     <x>722</x>
+     <x>715</x>
      <y>562</y>
     </hint>
    </hints>
@@ -1320,11 +1393,11 @@
    <slot>make_xz_view_widget()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>514</x>
-     <y>425</y>
+     <x>567</x>
+     <y>411</y>
     </hint>
     <hint type="destinationlabel">
-     <x>717</x>
+     <x>715</x>
      <y>658</y>
     </hint>
    </hints>
@@ -1336,11 +1409,11 @@
    <slot>make_yz_view_widget()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>628</x>
-     <y>421</y>
+     <x>692</x>
+     <y>411</y>
     </hint>
     <hint type="destinationlabel">
-     <x>721</x>
+     <x>715</x>
      <y>719</y>
     </hint>
    </hints>
