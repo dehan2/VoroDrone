@@ -359,14 +359,25 @@ void VoroDrone::connect_to_hunter()
 {
 	QString address = ui.lineEdit_drone_address->text();
 	m_droneCommunicator = new DroneCommunicatorThread(this, &m_mutex);
-	m_droneCommunicator->initialize(address.toStdString());
-	connect(m_droneCommunicator, SIGNAL(hunter_location_updated()), this, SLOT(update_drone_information()));
-	m_droneCommunicator->start();
 
 	QString address2 = ui.lineEdit_drone_address2->text();
+
+	m_droneCommunicator->initialize(address.toStdString(), address2.toStdString());
+	connect(m_droneCommunicator, SIGNAL(hunter_location_updated()), this, SLOT(update_drone_information()));
+	m_droneCommunicator->start();
+}
+
+
+
+void VoroDrone::connect_to_hunter_2()
+{
+	/*QString address2 = ui.lineEdit_drone_address2->text();
 	m_droneCommunicator2 = new DroneCommunicatorThread(this, &m_mutex2);
+	m_droneCommunicator2->isFirst = false;
+	m_droneCommunicator2->dronekit_module = m_droneCommunicator->dronekit_module;
 	m_droneCommunicator2->initialize(address2.toStdString());
-	m_droneCommunicator2->start();
+	connect(m_droneCommunicator2, SIGNAL(hunter_location_updated()), this, SLOT(update_drone_information()));
+	m_droneCommunicator2->start();*/
 }
 
 
@@ -374,7 +385,6 @@ void VoroDrone::connect_to_hunter()
 void VoroDrone::take_off_hunter()
 {
 	m_droneCommunicator->bTakeOff = true;
-	m_droneCommunicator2->bTakeOff = true;
 }
 
 

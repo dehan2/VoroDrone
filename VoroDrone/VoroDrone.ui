@@ -48,7 +48,7 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>412</width>
+     <width>428</width>
      <height>770</height>
     </size>
    </property>
@@ -172,7 +172,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>100</string>
+                 <string>10</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -450,7 +450,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>udp:127.0.0.1:14550</string>
+                 <string>udp:192.168.0.3:14550</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -524,7 +524,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>udp:127.0.0.1:14550</string>
+                 <string>udp:192.168.0.3:15550</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -580,6 +580,13 @@
                <widget class="QPushButton" name="pushButton_connect_drone">
                 <property name="text">
                  <string>Connect to drone</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_connect_drone_2">
+                <property name="text">
+                 <string>connect2</string>
                 </property>
                </widget>
               </item>
@@ -753,7 +760,7 @@
                  <string>Ball</string>
                 </property>
                 <property name="checked">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -773,7 +780,7 @@
                  <string>Hide</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -977,7 +984,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>562</x>
+     <x>541</x>
      <y>132</y>
     </hint>
     <hint type="destinationlabel">
@@ -993,8 +1000,8 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>444</x>
-     <y>132</y>
+     <x>407</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1009,7 +1016,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>680</x>
+     <x>665</x>
      <y>132</y>
     </hint>
     <hint type="destinationlabel">
@@ -1025,7 +1032,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>444</x>
+     <x>417</x>
      <y>209</y>
     </hint>
     <hint type="destinationlabel">
@@ -1041,7 +1048,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>562</x>
+     <x>541</x>
      <y>209</y>
     </hint>
     <hint type="destinationlabel">
@@ -1057,7 +1064,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>681</x>
+     <x>665</x>
      <y>209</y>
     </hint>
     <hint type="destinationlabel">
@@ -1073,7 +1080,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>594</x>
+     <x>590</x>
      <y>263</y>
     </hint>
     <hint type="destinationlabel">
@@ -1089,7 +1096,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>416</x>
+     <x>404</x>
      <y>263</y>
     </hint>
     <hint type="destinationlabel">
@@ -1105,7 +1112,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>505</x>
+     <x>497</x>
      <y>263</y>
     </hint>
     <hint type="destinationlabel">
@@ -1138,7 +1145,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>682</x>
-     <y>677</y>
+     <y>697</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1153,8 +1160,8 @@
    <slot>current_time_changed_by_slider()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>633</x>
-     <y>706</y>
+     <x>617</x>
+     <y>726</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1170,7 +1177,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>682</x>
-     <y>734</y>
+     <y>754</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1185,8 +1192,8 @@
    <slot>play_simulation()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>452</x>
-     <y>736</y>
+     <x>444</x>
+     <y>756</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1217,7 +1224,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>683</x>
+     <x>417</x>
      <y>371</y>
     </hint>
     <hint type="destinationlabel">
@@ -1233,7 +1240,7 @@
    <slot>save_drone_informations()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>503</x>
+     <x>497</x>
      <y>304</y>
     </hint>
     <hint type="destinationlabel">
@@ -1265,8 +1272,8 @@
    <slot>connect_to_hunter()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>446</x>
-     <y>588</y>
+     <x>423</x>
+     <y>608</y>
     </hint>
     <hint type="destinationlabel">
      <x>651</x>
@@ -1329,7 +1336,7 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>666</x>
+     <x>417</x>
      <y>317</y>
     </hint>
     <hint type="destinationlabel">
@@ -1345,8 +1352,8 @@
    <slot>show_option_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>370</x>
-     <y>150</y>
+     <x>417</x>
+     <y>155</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -1377,7 +1384,7 @@
    <slot>make_xy_view_widget()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>443</x>
+     <x>408</x>
      <y>411</y>
     </hint>
     <hint type="destinationlabel">
@@ -1393,7 +1400,7 @@
    <slot>make_xz_view_widget()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>567</x>
+     <x>538</x>
      <y>411</y>
     </hint>
     <hint type="destinationlabel">
@@ -1409,12 +1416,28 @@
    <slot>make_yz_view_widget()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>692</x>
+     <x>668</x>
      <y>411</y>
     </hint>
     <hint type="destinationlabel">
      <x>715</x>
      <y>719</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_connect_drone_2</sender>
+   <signal>clicked()</signal>
+   <receiver>VoroDroneClass</receiver>
+   <slot>connect_to_hunter_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>593</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>717</x>
+     <y>618</y>
     </hint>
    </hints>
   </connection>
@@ -1440,5 +1463,6 @@
   <slot>make_xy_view_widget()</slot>
   <slot>make_xz_view_widget()</slot>
   <slot>make_yz_view_widget()</slot>
+  <slot>connect_to_hunter_2()</slot>
  </slots>
 </ui>

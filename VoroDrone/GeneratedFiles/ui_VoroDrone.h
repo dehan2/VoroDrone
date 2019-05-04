@@ -106,6 +106,7 @@ public:
     QLabel *label_hunter_alt2;
     QHBoxLayout *horizontalLayout_14;
     QPushButton *pushButton_connect_drone;
+    QPushButton *pushButton_connect_drone_2;
     QPushButton *pushButton_take_off;
     QPushButton *pushButton_hunter_land;
     QPushButton *pushButton_hunt_bug;
@@ -186,7 +187,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(dockWidget_2->sizePolicy().hasHeightForWidth());
         dockWidget_2->setSizePolicy(sizePolicy);
-        dockWidget_2->setMinimumSize(QSize(412, 770));
+        dockWidget_2->setMinimumSize(QSize(428, 770));
         dockWidgetContents_2 = new QWidget();
         dockWidgetContents_2->setObjectName(QStringLiteral("dockWidgetContents_2"));
         verticalLayout = new QVBoxLayout(dockWidgetContents_2);
@@ -528,6 +529,11 @@ public:
 
         horizontalLayout_14->addWidget(pushButton_connect_drone);
 
+        pushButton_connect_drone_2 = new QPushButton(groupBox_6);
+        pushButton_connect_drone_2->setObjectName(QStringLiteral("pushButton_connect_drone_2"));
+
+        horizontalLayout_14->addWidget(pushButton_connect_drone_2);
+
         pushButton_take_off = new QPushButton(groupBox_6);
         pushButton_take_off->setObjectName(QStringLiteral("pushButton_take_off"));
 
@@ -641,7 +647,7 @@ public:
         horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
         radioButton_hunter_ball = new QRadioButton(groupBox_3);
         radioButton_hunter_ball->setObjectName(QStringLiteral("radioButton_hunter_ball"));
-        radioButton_hunter_ball->setChecked(false);
+        radioButton_hunter_ball->setChecked(true);
 
         horizontalLayout_16->addWidget(radioButton_hunter_ball);
 
@@ -653,7 +659,7 @@ public:
 
         radioButton_hunter_hide = new QRadioButton(groupBox_3);
         radioButton_hunter_hide->setObjectName(QStringLiteral("radioButton_hunter_hide"));
-        radioButton_hunter_hide->setChecked(true);
+        radioButton_hunter_hide->setChecked(false);
 
         horizontalLayout_16->addWidget(radioButton_hunter_hide);
 
@@ -818,6 +824,7 @@ public:
         QObject::connect(pushButton_open_xy_view, SIGNAL(clicked()), VoroDroneClass, SLOT(make_xy_view_widget()));
         QObject::connect(pushButton_open_xz_view, SIGNAL(clicked()), VoroDroneClass, SLOT(make_xz_view_widget()));
         QObject::connect(pushButton_open_yz_view, SIGNAL(clicked()), VoroDroneClass, SLOT(make_yz_view_widget()));
+        QObject::connect(pushButton_connect_drone_2, SIGNAL(clicked()), VoroDroneClass, SLOT(connect_to_hunter_2()));
 
         tabWidget->setCurrentIndex(0);
         comboBox_bug_generation_mode->setCurrentIndex(-1);
@@ -834,7 +841,7 @@ public:
         lineEdit_r->setText(QApplication::translate("VoroDroneClass", "0.25", 0));
         label->setText(QApplication::translate("VoroDroneClass", "Drone radius(m)", 0));
         label_3->setText(QApplication::translate("VoroDroneClass", "#Obstacles", 0));
-        lineEdit_n->setText(QApplication::translate("VoroDroneClass", "100", 0));
+        lineEdit_n->setText(QApplication::translate("VoroDroneClass", "10", 0));
         label_2->setText(QApplication::translate("VoroDroneClass", "Safety distance(m)", 0));
         label_10->setText(QApplication::translate("VoroDroneClass", "Fence size(L/W/H, m)", 0));
         lineEdit_fence_length->setText(QApplication::translate("VoroDroneClass", "100", 0));
@@ -855,18 +862,19 @@ public:
         label_12->setText(QApplication::translate("VoroDroneClass", "Hunter speed(m/s)", 0));
         lineEdit_hunter_speed->setText(QApplication::translate("VoroDroneClass", "3.0", 0));
         label_11->setText(QApplication::translate("VoroDroneClass", "Address", 0));
-        lineEdit_drone_address->setText(QApplication::translate("VoroDroneClass", "udp:127.0.0.1:14550", 0));
+        lineEdit_drone_address->setText(QApplication::translate("VoroDroneClass", "udp:192.168.0.3:14550", 0));
         label_9->setText(QApplication::translate("VoroDroneClass", "Lat./Lon./Alt.", 0));
         label_hunter_lat->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         label_hunter_lon->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         label_hunter_alt->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         label_13->setText(QApplication::translate("VoroDroneClass", "Address", 0));
-        lineEdit_drone_address2->setText(QApplication::translate("VoroDroneClass", "udp:127.0.0.1:14550", 0));
+        lineEdit_drone_address2->setText(QApplication::translate("VoroDroneClass", "udp:192.168.0.3:15550", 0));
         label_14->setText(QApplication::translate("VoroDroneClass", "Lat./Lon./Alt.", 0));
         label_hunter_lat2->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         label_hunter_lon2->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         label_hunter_alt2->setText(QApplication::translate("VoroDroneClass", "NULL", 0));
         pushButton_connect_drone->setText(QApplication::translate("VoroDroneClass", "Connect to drone", 0));
+        pushButton_connect_drone_2->setText(QApplication::translate("VoroDroneClass", "connect2", 0));
         pushButton_take_off->setText(QApplication::translate("VoroDroneClass", "Take off", 0));
         pushButton_hunter_land->setText(QApplication::translate("VoroDroneClass", "Land", 0));
         pushButton_hunt_bug->setText(QApplication::translate("VoroDroneClass", "Hunt bug", 0));

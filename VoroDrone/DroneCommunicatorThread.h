@@ -21,8 +21,13 @@ public:
 	PyObject *droneInstance;
 
 	string droneAddress;
+	string droneAddress2;
+
 	float droneLat, droneLon, droneAlt;
 	float homeLat, homeLon, homeAlt;
+
+	float droneLat2, droneLon2, droneAlt2;
+	float homeLat2, homeLon2, homeAlt2;
 
 	QMutex* m_mutex;
 	bool bTakeOff;
@@ -45,7 +50,7 @@ signals:
 	void hunter_location_updated();
 
 	public slots:
-	void initialize(const string& address);
+	void initialize(const string& address, const string& address2);
 	void finalize();
 	void getDroneLocation();
 	void armNtakeoffDrone(float inputAlt);

@@ -13,6 +13,14 @@ DroneCommunicatorThread::DroneCommunicatorThread(QObject *parent, QMutex* mutex)
 	homeLon = 0.0f;
 	homeAlt = 0.0f;
 
+	droneLat2 = 0.0f;
+	droneLon2 = 0.0f;
+	droneAlt2 = 0.0f;
+
+	homeLat2 = 0.0f;
+	homeLon2 = 0.0f;
+	homeAlt2 = 0.0f;
+
 	m_mutex = mutex;
 
 	bTakeOff = false;
@@ -119,15 +127,16 @@ array<float, 3> DroneCommunicatorThread::calculate_drone_coord()
 	return translate_gps_to_coord(droneLat, droneLon, droneAlt);
 }
 
-void DroneCommunicatorThread::initialize(const string& address)
+void DroneCommunicatorThread::initialize(const string& address, const string& address2)
 {
 	Py_Initialize();
 	PyObject* dronekit_module = PyImport_ImportModule("droneConnector");
 	PyObject* drone_get_class = PyObject_GetAttrString(dronekit_module, "drone_get");
-
 	string inputConnect(address);
-	PyObject* pyInputConnect = PyTuple_New(1);
+	string inputConnect2(address2);
+	PyObject* pyInputConnect = PyTuple_New(2);
 	PyTuple_SetItem(pyInputConnect, 0, PyString_FromString(inputConnect.c_str()));
+	PyTuple_SetItem(pyInputConnect, 1, PyString_FromString(inputConnect2.c_str()));
 	droneInstance = PyObject_CallObject(drone_get_class, pyInputConnect);
 
 	PyObject *pyLat, *pyLon, *pyAlt;
@@ -141,6 +150,15 @@ void DroneCommunicatorThread::initialize(const string& address)
 	homeLon = (float)PyFloat_AsDouble(pyLon);
 	//homeAlt = (float)PyFloat_AsDouble(pyAlt);
 	homeAlt = 10;
+
+	PyObject *pyLat2, *pyLon2, *pyAlt2;
+	pyLat2 = PyList_GetItem(result, 3);
+	pyLon2 = PyList_GetItem(result, 4);
+	pyAlt2 = PyList_GetItem(result, 5);
+	homeLat2 = (float)PyFloat_AsDouble(pyLat2);
+	homeLon2 = (float)PyFloat_AsDouble(pyLon2);
+	//homeAlt = (float)PyFloat_AsDouble(pyAlt);
+	homeAlt2 = 10;
 }
 
 void DroneCommunicatorThread::finalize()
@@ -152,6 +170,7 @@ void DroneCommunicatorThread::finalize()
 void DroneCommunicatorThread::getDroneLocation()
 {
 	PyObject *pyLat, *pyLon, *pyAlt;
+	PyObject *pyLat2, *pyLon2, *pyAlt2;
 	char func_name[] = "getLocation";
 	PyObject* result = PyObject_CallMethod(droneInstance, func_name, NULL);
 
@@ -161,6 +180,13 @@ void DroneCommunicatorThread::getDroneLocation()
 	droneLat = (float)PyFloat_AsDouble(pyLat);
 	droneLon = (float)PyFloat_AsDouble(pyLon);
 	droneAlt = (float)PyFloat_AsDouble(pyAlt);
+
+	pyLat2 = PyList_GetItem(result, 3);
+	pyLon2 = PyList_GetItem(result, 4);
+	pyAlt2 = PyList_GetItem(result, 5);
+	droneLat2 = (float)PyFloat_AsDouble(pyLat2);
+	droneLon2 = (float)PyFloat_AsDouble(pyLon2);
+	droneAlt2 = (float)PyFloat_AsDouble(pyAlt2);
 }
 
 

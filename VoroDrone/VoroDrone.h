@@ -70,6 +70,7 @@ void save_drone_informations();
 void load_drone_informations();
 
 void connect_to_hunter();
+void connect_to_hunter_2();
 void take_off_hunter();
 void hunt_bug();
 void land_hunter();
